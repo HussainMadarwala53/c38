@@ -30,7 +30,7 @@ class Game {
     car2= createSprite(300,200);
     car3= createSprite(500,200);
     car4= createSprite(700,200);
-    cars= [car1,car2,car3,car];
+    cars= [car1,car2,car3,car4];   // changed the last element to cars4
   }
 
   play(){
@@ -40,7 +40,10 @@ class Game {
     Player.getPlayerInfo();
 
     if(allPlayers !== undefined){
-      var display_position = 130;
+     var display_position = 130;
+ var index = 0;     // index was not initialised
+     var x = 0;   // x was not initialised
+      var y;     //y was not initialised
       for(var plr in allPlayers){
         index=index+1
         x=x+200
@@ -48,7 +51,7 @@ class Game {
         cars[index-1].x=x
         cars[index-1].y=y
         if (index === player.index){
-          cars[index-1].shapeColor=red
+          cars[index-1].shapeColor='red'
         }
           fill("red")
         
@@ -64,6 +67,7 @@ class Game {
       player.distance +=50
       player.update();
     }
+drawSprites();    // drawSprites was not written
   }
 
 }
